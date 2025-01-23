@@ -1,0 +1,42 @@
+.meter-controller-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+    padding: 10px 12px; 
+    border-radius: 10px;
+    border: 1px solid #4169E1;
+    margin: 0;
+}
+.decrease-value {
+    background: transparent;
+    border: 0;
+    color: #4169E1;
+    flex: 1 1 auto;
+    text-align: left;
+}
+.increase-value {
+    background: transparent;
+    border: 0;
+    color: #4169E1;
+    flex: 1 1 auto;
+    text-align: right;
+}
+.counter-value {
+    color: #4169E1;
+}
+.base-button {
+    background: #4169E1;
+    border-radius: 10px;
+    border: 0;
+    transition-duration: .3s;
+    padding: 10px 12px;
+    color: white;
+    margin: 0;
+}
+.base-button:hover {
+    background: #1f3b91;
+}
+.base-button:active {
+    transition-duration: .1s;
+    background: #6289fd;
+}
