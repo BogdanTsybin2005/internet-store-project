@@ -1,6 +1,6 @@
+import ButtonContainer from "../button/container";
 import React from "react";
 import './card.css';
-import ButtonContainer from "../button/container";
 
 
 
@@ -18,7 +18,7 @@ export default function CardList(props) {
                         <p className="card-category">{item.category}</p>
                         <p className="card-title">{item.title}</p>
                     </div>
-                    <div className="small-content">
+                    <div>
                         <p className="card-price">${item.price}</p>
                         <ButtonContainer/>
                     </div>

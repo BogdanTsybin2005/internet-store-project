@@ -33,13 +33,13 @@
     flex: 1 1 auto;
     justify-content: space-between;
 }
-.card-text-content > div {
+.card-text-content > div:first-child {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin: 15px 0 25px 0;
 }
-.small-content {
+.card-text-content > div:last-child {
     display: flex;
     justify-content: space-between;
 }

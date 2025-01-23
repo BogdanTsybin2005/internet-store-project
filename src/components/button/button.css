@@ -1,8 +1,8 @@
-.meter-controller-button {
+div.meter-controller-button {
     display: flex;
     justify-content: space-between;
     align-items: center;   
-    padding: 10px 12px; 
+    padding: 8px 12px; 
     border-radius: 10px;
     border: 1px solid #4169E1;
     margin: 0;
@@ -24,14 +24,13 @@
 .counter-value {
     color: #4169E1;
 }
-.base-button {
+button.base-button {
     background: #4169E1;
     border-radius: 10px;
     border: 0;
     transition-duration: .3s;
     padding: 10px 12px;
     color: white;
-    margin: 0;
 }
 .base-button:hover {
     background: #1f3b91;

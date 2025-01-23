@@ -9,13 +9,13 @@ export default function AddToCardButton(props) {
         {
             buttonAddCounter > 0 
             ? 
-                <div className="meter-controller-button">
+                <div className="mete-crontroller-button">
                     <button onClick={onDecrease} className="decrease-value">-</button>
                     <p className="counter-value">{buttonAddCounter}</p>
                     <button onClick={onIncrease} className="increase-value">+</button>
                 </div> 
             : 
-                <button className="base-button">{buttonText}</button>
+                <button className="base-button" onClick={onIncrease}>{buttonText}</button>
         }
     </>
 }

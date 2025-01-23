@@ -26,7 +26,7 @@ export default function CardContainer() {
 
 
     return <>
-        
-        {/* {dataLoded ?  <div className="card-list"><CardList data={storeData}/></div> : <p>Loading...</p>} */}
+
+        {dataLoded ?  <div className="card-list"><CardList data={storeData}/></div> : <p>Loading...</p>}
     </>
 }

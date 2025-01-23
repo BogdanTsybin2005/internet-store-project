@@ -11,13 +11,13 @@ export default function ButtonContainer() {
     }
 
     const decreaseCounterValue = () => {
-        if (buttonPropCounter > 0) {
+        if (buttonPropCounter >= 0) {
             setButtonPropCounter(buttonPropCounter => buttonPropCounter - 1);
         }
     }
 
     return <AddToCardButton 
-        buttonText='Add to card' 
+        buttonText='Add to cart' 
         buttonAddCounter={buttonPropCounter} 
         onIncrease={increaseCounterValue}
         onDecrease={decreaseCounterValue}
