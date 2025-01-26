@@ -28,6 +28,7 @@ export function ButtonForFilter(props) {
     const {buttonText, onFilterAfterClick} = props;
     return <button 
         className="base-button"
-        onClick={onFilterAfterClick}
-    >{buttonText}</button>
+        onClick={onFilterAfterClick}>
+            {buttonText}
+        </button>
 }

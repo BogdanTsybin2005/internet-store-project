@@ -4,12 +4,14 @@ import React from "react";
 import { ButtonForFilter } from "../button/container";
 import Header from "../header";
 import loadingIcon from '../../components/img/pictures/loading.png';
+import ShoppingBasketButton from "../button/shoppingBasketButton";
 
 
 
 export default function CardContainer() {
     const [dataLoded, setDataLoaded] = useState(false);
     const [storeData, setStoreData] = useState([]);
+    const [isFilterWorked, setIsFilterWorked] = useState(false);
     const [filteredData, setFilteredData] = useState([]);
 
     useEffect(() => {
@@ -30,23 +32,29 @@ export default function CardContainer() {
     const filterDataByCategory = (categoryName) => {
         setFilteredData(storeData.filter((item) => {
             return item.category === categoryName
-        }))
+        }));
+        setIsFilterWorked(true);
     }
     
     const resetData = () => {
         setFilteredData(storeData);
+        setIsFilterWorked(false);
     }
 
     return <>
         <Header>
             <div className="header-buttons">
-                <ButtonForFilter 
+                {isFilterWorked && <ButtonForFilter 
                     buttonText="Reset filter"
                     onFilterAfterClick={resetData}
-                />
+                />}
                 {["men's clothing", "women's clothing", "electronics", "jewelery"].map((categoryName) => {
-                    return <ButtonForFilter buttonText={categoryName} onFilterAfterClick={() => filterDataByCategory(categoryName)}/>
+                    return <ButtonForFilter 
+                        buttonText={categoryName} 
+                        onFilterAfterClick={() => filterDataByCategory(categoryName)}
+                    />
                 })}
+                <ShoppingBasketButton functionAfterClick={() => console.log('Other click into basket')}/>
             </div>
         </Header>
         {dataLoded ?  <div className="card-list"><CardList data={filteredData}/></div> : <div className="load-icon"><img src={loadingIcon} alt="loading icon" /></div>}

@@ -49,12 +49,26 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 2px solid #4169E1;
+    border-radius: 5px;
+}
+.header-burger.__active span {
+    background: transparent;
+}
+.header-burger.__active span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+.header-burger.__active span::after {
+    bottom: 0;
+    transform: rotate(-45deg);
 }
 .header-burger span {
     width: 100%;
     height: 2px;
     background: #4169E1;
     position: relative;
+    transition-duration: .3s;
 }
 .header-burger span::before {
     content: '';
@@ -64,6 +78,7 @@ header {
     width: 100%;
     height: 2px;
     background: #4169E1;
+    transition-duration: .3s;
 }
 .header-burger span::after {
     content: '';
@@ -73,6 +88,10 @@ header {
     width: 100%;
     height: 2px;
     background: #4169E1;
+    transition-duration: .3s;
+}
+.menu-section {
+    display: none;
 }
 @media (max-width: 768px) {
     .header-buttons {
@@ -81,4 +100,50 @@ header {
     .header-burger {
         display: flex;
     }
+    .menu-section {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 15px;
+    }
+}
+.shopping-basket-button {
+    background: transparent;
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #4169E1;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    transition-duration: .3s;
+    padding: 5px 20px 5px 5px;
+}
+.shopping-basket-button:hover {
+    transform: scale(1.125);
+}
+.shopping-basket-button:active {
+    transition-duration: .1s;
+    transform: scale(.9);
+}
+#img-1, #img-2 {
+    transition-duration: .3s;
+}
+.shopping-basket-button:hover #img-2 {
+    transform: translateX(12px) scale(1.25);
+}
+.shopping-basket-button:hover #img-1 {
+    transform: translateX(6px) scale(1.125);
+} 
+.quantity-of-selected-items {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: red;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 9px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
