@@ -40,3 +40,45 @@ header {
     object-position: center;
     transform: scale(1.30);
 }
+.header-burger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    background: transparent;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header-burger span {
+    width: 100%;
+    height: 2px;
+    background: #4169E1;
+    position: relative;
+}
+.header-burger span::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #4169E1;
+}
+.header-burger span::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #4169E1;
+}
+@media (max-width: 768px) {
+    .header-buttons {
+        display: none;
+    }
+    .header-burger {
+        display: flex;
+    }
+}

@@ -3,7 +3,7 @@ import CardList from "./presentation";
 import React from "react";
 import { ButtonForFilter } from "../button/container";
 import Header from "../header";
-import headerLogo from '../../components/img/pictures/header-logo.png';
+import loadingIcon from '../../components/img/pictures/loading.png';
 
 
 
@@ -39,22 +39,16 @@ export default function CardContainer() {
 
     return <>
         <Header>
-            <div className="header-logo">
-                <img 
-                    src={headerLogo} 
-                    alt="header logo should be just right here!." 
-                />
-            </div>
             <div className="header-buttons">
                 <ButtonForFilter 
                     buttonText="Reset filter"
                     onFilterAfterClick={resetData}
                 />
-                {["men's clothing", "jewelery", "electronics", "women's clothing"].map((categoryName) => {
+                {["men's clothing", "women's clothing", "electronics", "jewelery"].map((categoryName) => {
                     return <ButtonForFilter buttonText={categoryName} onFilterAfterClick={() => filterDataByCategory(categoryName)}/>
                 })}
             </div>
         </Header>
-        {dataLoded ?  <div className="card-list"><CardList data={filteredData}/></div> : <p>Loading...</p>}
+        {dataLoded ?  <div className="card-list"><CardList data={filteredData}/></div> : <div className="load-icon"><img src={loadingIcon} alt="loading icon" /></div>}
     </>
 }
