@@ -1,9 +1,9 @@
-import AddToCardButton from "./button";
+import { AddToCardButton } from "./button";
 import { useState } from "react";
 import React from "react";
 
 
-export default function ButtonContainer() {
+export function ButtonContainer() {
     const [buttonPropCounter, setButtonPropCounter] = useState(0);
 
     const increaseCounterValue = () => {
@@ -22,4 +22,12 @@ export default function ButtonContainer() {
         onIncrease={increaseCounterValue}
         onDecrease={decreaseCounterValue}
     />
+}
+
+export function ButtonForFilter(props) {
+    const {buttonText, onFilterAfterClick} = props;
+    return <button 
+        className="base-button"
+        onClick={onFilterAfterClick}
+    >{buttonText}</button>
 }

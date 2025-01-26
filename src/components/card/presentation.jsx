@@ -1,4 +1,4 @@
-import ButtonContainer from "../button/container";
+import {ButtonContainer} from "../button/container";
 import React from "react";
 import './card.css';
 
