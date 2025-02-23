@@ -1,11 +1,13 @@
 import CardContainer from "./components/card/container";
-
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
-    <div className="App">
-      <CardContainer/>
-    </div>
+    <CartProvider>
+      <div className="App">
+        <CardContainer />
+      </div>
+    </CartProvider>
   );
 }
 

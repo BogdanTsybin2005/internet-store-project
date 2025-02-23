@@ -23,7 +23,7 @@ export default function Header({children}) {
                     onClick={() => {setIsBurgerButtonClicked(!isBurgerButtonClicked)}}>
                         <span></span>
                 </button>
-                <ShoppingBasketButton functionAfterClick={() => console.log('basket')}/>
+                <ShoppingBasketButton/>
             </div>
         </div>
     </header>
