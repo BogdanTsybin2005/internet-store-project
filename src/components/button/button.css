@@ -42,3 +42,6 @@ button.base-button {
     transition-duration: .1s;
     background: #6289fd;
 }
+.meter-crontroller-button button {
+    background: red;
+}

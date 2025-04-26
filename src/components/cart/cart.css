@@ -1,7 +1,7 @@
 .cart-container {
     width: 450px;
     background-color: #fff;
-    padding: 20px;
+    padding: 20px 20px 0 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: fixed;
@@ -99,6 +99,16 @@
     text-align: center;
     margin-top: 10px;
     color: #000;
+}
+.cart-footer-block {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding-top: 5px;
+    padding-bottom: 20px;
+
 }
 
 

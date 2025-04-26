@@ -83,6 +83,25 @@
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
+.quantity-controls {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.quantity-controls button {
+    background: transparent;
+    border: 2px solid #4169E1;
+    padding: 6px 18px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition-duration: .3s;
+}
+.quantity-controls button:hover {
+    background-color: #3459c8;
+    border: 2px solid #3459c8;
+    color: white;
+}
 
 
 @keyframes loadingIconSpinner {

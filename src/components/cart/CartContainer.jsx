@@ -24,8 +24,10 @@ export default function CartContainer() {
                         </div>
                     </div>
                 ))}
-                <h3>Total: ${(cart.reduce((acc, item) => acc + item.price * item.quantity, 0)).toFixed(2)}</h3>
-                <button onClick={clearCart} className="clear-cart">Clear Cart</button>
+                <div className="cart-footer-block">
+                    <h3>Total: ${(cart.reduce((acc, item) => acc + item.price * item.quantity, 0)).toFixed(2)}</h3>
+                    <button onClick={clearCart} className="clear-cart">Clear Cart</button>
+                </div>
             </>
         </aside>
     );
