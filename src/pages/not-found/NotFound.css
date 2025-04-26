@@ -1,6 +1,154 @@
-.not-found {
-    padding: 20px;
-    text-align: center;
-    color: red;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background: #f5f7fa;
+}
+
+.not-found-page {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.not-found-left-panel {
+  flex: 1;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 80px;
+
+}
+
+.not-found-left-panel h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.not-found-left-panel h1 {
+  font-size: 140px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.not-found-left-panel p {
+  font-size: 20px;
+  line-height: 1.8;
+  max-width: 400px;
+  margin-bottom: 40px;
+}
+
+.not-found-button {
+  padding: 14px 30px;
+  background: white;
+  color: #3b82f6;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.not-found-right-panel {
+  flex: 1;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  box-shadow: -10px 0 25px rgba(0, 0, 0, 0.05);
+}
+
+.not-found-right-panel h1 {
+  font-size: 60px;
+  color: #1a1a1a;
+  font-weight: 800;
+}
+
+
+@media (max-width: 1200px) {
+  .not-found-left-panel h1 {
+    font-size: 100px;
   }
-  
+
+  .not-found-left-panel h2 {
+    font-size: 28px;
+  }
+
+  .not-found-left-panel p {
+    font-size: 18px;
+    max-width: 350px;
+  }
+
+  .not-found-right-panel h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  .not-found-page {
+    flex-direction: column;
+  }
+
+  .not-found-left-panel, .not-found-right-panel {
+    flex: none;
+    height: 50vh;
+    padding: 40px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .not-found-left-panel h1 {
+    font-size: 80px;
+  }
+
+  .not-found-left-panel h2 {
+    font-size: 24px;
+  }
+
+  .not-found-left-panel p {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .not-found-right-panel h1 {
+    font-size: 32px;
+  }
+
+  .not-found-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  .not-found-left-panel h1 {
+    font-size: 60px;
+  }
+
+  .not-found-left-panel h2 {
+    font-size: 20px;
+  }
+
+  .not-found-left-panel p {
+    font-size: 14px;
+  }
+
+  .not-found-right-panel h1 {
+    font-size: 26px;
+  }
+
+  .not-found-button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}

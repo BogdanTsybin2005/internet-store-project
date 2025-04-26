@@ -6,6 +6,8 @@ import CartPage from './pages/cart-page/CartPage';
 import CheckoutPage from './pages/checkout-page/CheckoutPage';
 import UserProfile from './pages/user-profile/UserProfile';
 import NotFound from './pages/not-found/NotFound';
+import LoginPage from './pages/login/LoginPage';
+import RegisterPage from './pages/register/RegisterPage';
 
 
 
@@ -18,6 +20,8 @@ function App() {
       <Route path="/checkout" element={<CheckoutPage />} />
       <Route path="/profile" element={<UserProfile />} />
       <Route path="*" element={<NotFound />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/registration" element={<RegisterPage />} />
     </Routes>
   );
 }

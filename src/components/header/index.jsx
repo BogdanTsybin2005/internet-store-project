@@ -1,30 +1,30 @@
 import './style.css';
-import headerLogo from '../../components/img/pictures/header-logo.png'
+import headerLogo from '../../components/img/pictures/header-logo.png';
 import { useState } from 'react';
 import ShoppingBasketButton from '../button/shoppingBasketButton';
+import { Link } from 'react-router-dom';
 
 
-
-export default function Header({children}) {
+export default function Header({ children }) {
     const [isBurgerButtonClicked, setIsBurgerButtonClicked] = useState(false);
 
-    return <header>
-        <div className="header-container">
-            <div className="header-logo">
-                <img 
-                    src={headerLogo} 
-                    alt="header logo should be just right here!." 
-                />
-            </div>
-            {children}
-            <div className='menu-section'>
-                <button 
-                    className={`header-burger ${isBurgerButtonClicked ? '__active' : ''}`}
-                    onClick={() => {setIsBurgerButtonClicked(!isBurgerButtonClicked)}}>
+    return (
+        <header>
+            <div className="header-container">
+                <div className="header-logo">
+                    <img src={headerLogo} alt="header logo here" />
+                </div>
+
+                {children}
+
+                <div className='menu-section'>
+                    <button
+                        className={`header-burger ${isBurgerButtonClicked ? '__active' : ''}`}
+                        onClick={() => { setIsBurgerButtonClicked(!isBurgerButtonClicked) }}>
                         <span></span>
-                </button>
-                <ShoppingBasketButton/>
+                    </button>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
+    );
 }

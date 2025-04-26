@@ -147,3 +147,30 @@ header {
     font-weight: 600;
     letter-spacing: 1px;
 }
+.auth-button {
+    padding: 8px 16px;
+    background: #4169E1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.auth-button:hover {
+    background: #274dbe;
+}
+
+@media (max-width: 768px) {
+    .header-buttons {
+        display: none;
+    }
+
+    .menu-section {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 15px;
+    }
+}

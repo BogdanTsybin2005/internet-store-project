@@ -1,4 +1,142 @@
 .cart-page {
-    padding: 20px;
-  }
-  
+  padding: 40px 20px;
+  background: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 20px;
+  background: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease;
+}
+
+.cart-item:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  padding: 5px;
+  border: 1px solid #eee;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-info h2 {
+  font-size: 18px;
+  margin: 0 0 10px 0;
+  color: #1a1a1a;
+}
+
+.cart-item-info p {
+  font-size: 16px;
+  color: #555;
+  margin: 0 0 10px 0;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-controls button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.quantity-controls button:hover {
+  background: #2563eb;
+}
+
+.quantity-controls span {
+  font-size: 16px;
+  min-width: 24px;
+  text-align: center;
+  color: #1a1a1a;
+}
+
+.remove-button {
+  margin-left: auto;
+  padding: 8px 16px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.remove-button:hover {
+  background: #dc2626;
+}
+
+.cart-summary {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.cart-summary p {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.clear-cart-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.clear-cart-button:hover {
+  background: #2563eb;
+}
+
+.cart-empty {
+  font-size: 20px;
+  color: #555;
+  margin-top: 50px;
+  text-align: center;
+}

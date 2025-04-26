@@ -7,6 +7,7 @@ import loadingIcon from '../../components/img/pictures/loading.png';
 import ShoppingBasketButton from "../button/shoppingBasketButton";
 import CartContainer from "../cart/CartContainer";
 import { useCart } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 
 
@@ -51,6 +52,10 @@ export default function CardContainer() {
                     {["men's clothing", "women's clothing", "electronics", "jewelery"].map((categoryName) => (
                         <ButtonForFilter key={categoryName} buttonText={categoryName} onFilterAfterClick={() => filterDataByCategory(categoryName)} />
                     ))}
+                    <div className="header-buttons">
+                        <Link to="/login" className="auth-button">Login</Link>
+                        <Link to="/registration" className="auth-button">Register</Link>
+                    </div>
                     <ShoppingBasketButton functionAfterClick={() => console.log('Basket Click')} />
                 </div>
             </Header>
