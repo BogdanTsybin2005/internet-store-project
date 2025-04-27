@@ -1,5 +1,8 @@
 import './NotFound.css';
 import { Link } from 'react-router-dom';
+import NotFound404Picture from '../../assets/404.png';
+
+
 
 function NotFound() {
   return (
@@ -11,6 +14,9 @@ function NotFound() {
         <Link to="/" className="not-found-button">Go Back Home</Link>
       </div>
       <div className="not-found-right-panel">
+        <div className="not-found-right-panel-img">
+          <img src={NotFound404Picture} alt="404" />
+        </div>
         <h1>Page Not Found</h1>
       </div>
     </div>

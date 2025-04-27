@@ -5,7 +5,7 @@ import ProductDetails from './pages/product-details/ProductDetails';
 import CartPage from './pages/cart-page/CartPage';
 import CheckoutPage from './pages/checkout-page/CheckoutPage';
 import UserProfile from './pages/user-profile/UserProfile';
-import NotFound from './pages/not-found/NotFound';
+import NotFound from './pages/404-not-found/NotFound';
 import LoginPage from './pages/login/LoginPage';
 import RegisterPage from './pages/register/RegisterPage';
 

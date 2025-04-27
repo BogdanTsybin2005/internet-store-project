@@ -72,7 +72,7 @@ export default function LoginPage() {
                                     onChange={handleChange}
                                 /> Keep me signed in
                             </label>
-                            <Link to="/register">Don't have an account?</Link>
+                            <Link to="/registration">Don't have an account?</Link>
                         </div>
                         <button type="submit" className="auth-button">LOGIN</button>
                     </form>
