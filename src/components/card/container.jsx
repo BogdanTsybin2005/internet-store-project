@@ -5,9 +5,8 @@ import { ButtonForFilter } from "../button/container";
 import Header from "../header";
 import loadingIcon from '../../components/img/pictures/loading.png';
 import ShoppingBasketButton from "../button/shoppingBasketButton";
-import CartContainer from "../cart/CartContainer";
-import { useCart } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -16,7 +15,7 @@ export default function CardContainer() {
     const [storeData, setStoreData] = useState([]);
     const [isFilterWorked, setIsFilterWorked] = useState(false);
     const [filteredData, setFilteredData] = useState([]);
-    const {cart} = useCart();
+    const navigateToOtherPage = useNavigate();
 
 
     useEffect(() => {
@@ -56,10 +55,9 @@ export default function CardContainer() {
                         <Link to="/login" className="auth-button">Login</Link>
                         <Link to="/registration" className="auth-button">Register</Link>
                     </div>
-                    <ShoppingBasketButton functionAfterClick={() => console.log('Basket Click')} />
+                    <ShoppingBasketButton functionAfterClick={() => navigateToOtherPage('/cart')} />
                 </div>
             </Header>
-            {(cart.length > 0) && <CartContainer />}
             {dataLoaded ? <div className="card-list"><CardList data={filteredData} /></div> : <div className="load-icon"><img src={loadingIcon} alt="Loading" /></div>}
         </>
     );

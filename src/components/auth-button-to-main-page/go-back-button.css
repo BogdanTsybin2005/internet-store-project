@@ -1,0 +1,30 @@
+.go-back-link {
+    top: 7%;
+    left: 7%;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 16px;
+    transition: transform 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+}
+.fixed {
+    position: fixed;
+}
+.absolute {
+    position: absolute;
+}
+
+.go-back-link:hover {
+    transform: scale(1.05);
+}
+
+.go-back-link.light {
+    color: white;
+}
+
+.go-back-link.dark {
+    color: black;
+}

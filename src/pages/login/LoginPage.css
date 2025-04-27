@@ -13,7 +13,9 @@
   flex-direction: column;
   justify-content: center;
   padding: 60px;
+  position: relative;
 }
+
 
 .auth-left-panel h2 {
   font-size: 28px;

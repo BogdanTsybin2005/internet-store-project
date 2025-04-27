@@ -1,13 +1,18 @@
 import './CartPage.css';
 import { useCart } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
+import GoBackToMainPageButton from '../../components/auth-button-to-main-page/go-back-button';
+import ScrollButton from '../../components/scroll-button/ScrollButton';
+
+
 
 function CartPage() {
   const { cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart } = useCart();
-
   const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
 
   return (
     <div className="cart-page">
+      <GoBackToMainPageButton isButtonDark isButtonFixed />
       <h1 className="cart-title">Your Shopping Cart</h1>
       {cart.length === 0 ? (
         <p className="cart-empty">Your cart is empty.</p>
@@ -33,11 +38,19 @@ function CartPage() {
           <div className="cart-summary">
             <p>Total: <strong>${totalPrice}</strong></p>
             <button className="clear-cart-button" onClick={clearCart}>Clear Cart</button>
+            <Link to="/" className="go-home-button">🏠 Go to Home</Link>
           </div>
         </>
       )}
+      {cart.length > 0 ? (
+        <div className="scroll-buttons-fixed">
+          <ScrollButton scrollInToView="top"/>
+          <ScrollButton scrollInToView="bottom"/>
+        </div>
+      ) : null}
     </div>
   );
 }
+
 
 export default CartPage;

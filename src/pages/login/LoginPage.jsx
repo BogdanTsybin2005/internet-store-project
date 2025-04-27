@@ -2,6 +2,7 @@ import './LoginPage.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import FormInput from '../../components/input/FormInput';
+import GoBackToMainPageButton from '../../components/auth-button-to-main-page/go-back-button';
 
 
 
@@ -35,6 +36,9 @@ export default function LoginPage() {
     return (
         <div className="auth-page-container">
             <div className="auth-left-panel">
+
+                <GoBackToMainPageButton isButtonDark={false}/>
+                
                 <h2>Nice to see you again</h2>
                 <h1>WELCOME BACK</h1>
                 <p>Access your account and continue your shopping experience.</p>

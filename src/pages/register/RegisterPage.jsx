@@ -2,6 +2,7 @@ import './RegisterPage.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import FormInput from '../../components/input/FormInput';
+import GoBackToMainPageButton from '../../components/auth-button-to-main-page/go-back-button';
 
 
 
@@ -47,6 +48,9 @@ export default function RegisterPage() {
     return (
         <div className="auth-page-container">
             <div className="auth-left-panel">
+
+                <GoBackToMainPageButton isButtonDark={false}/>
+
                 <h2>Welcome to our store!</h2>
                 <h1>CREATE ACCOUNT</h1>
                 <p>Shop smart and easy. Register now and enjoy exclusive benefits!</p>
