@@ -5,10 +5,14 @@
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition-duration: .3s;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.disabled-button {
+    pointer-events: none;
+    opacity: .5;
 }
 
 .scroll-button:hover {

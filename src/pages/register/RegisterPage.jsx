@@ -49,7 +49,7 @@ export default function RegisterPage() {
         <div className="auth-page-container">
             <div className="auth-left-panel">
 
-                <GoBackToMainPageButton isButtonDark={false}/>
+                <GoBackToMainPageButton isButtonFixed/>
 
                 <h2>Welcome to our store!</h2>
                 <h1>CREATE ACCOUNT</h1>

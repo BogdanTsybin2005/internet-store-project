@@ -1,15 +1,19 @@
 .go-back-link {
-    top: 7%;
-    left: 7%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
     display: flex;
     align-items: center;
     gap: 6px;
     text-decoration: none;
-    letter-spacing: 1px;
     font-size: 16px;
+    font-weight: 600;
     transition: transform 0.2s ease, color 0.2s ease;
     cursor: pointer;
+    z-index: 10000000;
 }
+  
+  
 .fixed {
     position: fixed;
 }

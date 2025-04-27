@@ -21,7 +21,9 @@ function CartPage() {
           <div className="cart-container">
             {cart.map((item) => (
               <div key={item.id} className="cart-item">
-                <img src={item.image} alt={item.title} />
+                <div className="cart-item-img">
+                  <img src={item.image} alt={item.title} />
+                </div>
                 <div className="cart-item-info">
                   <h2>{item.title}</h2>
                   <p>${item.price}</p>
@@ -44,8 +46,8 @@ function CartPage() {
       )}
       {cart.length > 0 ? (
         <div className="scroll-buttons-fixed">
-          <ScrollButton scrollInToView="top"/>
-          <ScrollButton scrollInToView="bottom"/>
+          <ScrollButton scrollInToView="top" disableAfter={0}/> 
+          <ScrollButton scrollInToView="bottom" disableAfter="windowHeight"/>
         </div>
       ) : null}
     </div>

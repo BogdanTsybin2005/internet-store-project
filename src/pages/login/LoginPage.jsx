@@ -37,7 +37,7 @@ export default function LoginPage() {
         <div className="auth-page-container">
             <div className="auth-left-panel">
 
-                <GoBackToMainPageButton isButtonDark={false}/>
+                <GoBackToMainPageButton isButtonFixed/>
                 
                 <h2>Nice to see you again</h2>
                 <h1>WELCOME BACK</h1>

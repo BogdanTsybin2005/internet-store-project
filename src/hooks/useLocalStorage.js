@@ -7,8 +7,8 @@ export default function useLocalStorage(key, initialValue) {
         try {
             const storedValue = localStorage.getItem(key);
             return storedValue !== null ? JSON.parse(storedValue) : initialValue;
-        } catch (err) {
-            console.error(err);
+        } catch (error) {
+            console.error(error);
             return initialValue;
         }
     };
@@ -18,8 +18,8 @@ export default function useLocalStorage(key, initialValue) {
     useEffect(() => {
         try {
             localStorage.setItem(key, JSON.stringify(value));
-        } catch (err) {
-            console.error(err);
+        } catch (error) {
+            console.error(error);
         }
     }, [key, value]);
 
@@ -33,8 +33,8 @@ export default function useLocalStorage(key, initialValue) {
         try {
             localStorage.removeItem(key);
             setValue(initialValue);
-        } catch (err) {
-            console.error(err);
+        } catch (error) {
+            console.error(error);
         }
     };
 
