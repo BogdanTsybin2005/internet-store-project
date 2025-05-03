@@ -2,6 +2,7 @@ import './CheckoutPage.css';
 import { useState } from 'react';
 import EnhancedInput from '../../components/enhanced-input/input';
 import SubmitButton from '../../components/submit-button/SubmitButton';
+import GoBackToMainPageButton from '../../components/auth-button-to-main-page/go-back-button';
 
 
 
@@ -132,44 +133,47 @@ function CheckoutPage() {
   };
 
   return (
-    <div className="checkout-page">
-      <h1>Checkout</h1>
-      <form className="checkout-form" onSubmit={handleSubmit}>
-        {inputSections.map(({ title, fields, additionalFields, layout }) => (
-          <div className="form-section" key={title}>
-            <h2>{title}</h2>
-            {renderInputs(fields, layout)}
-            {additionalFields && (
-              <div className="card-details">
-                {additionalFields.map(({ label, type, name }) => (
-                  <EnhancedInput
-                    key={name}
-                    label={label}
-                    type={type}
-                    name={name}
-                    value={formData[name]}
+    <>
+      <GoBackToMainPageButton isButtonDark isButtonFixed />
+      <div className="checkout-page">
+        <h1>Checkout</h1>
+        <form className="checkout-form" onSubmit={handleSubmit}>
+          {inputSections.map(({ title, fields, additionalFields, layout }) => (
+            <div className="form-section" key={title}>
+              <h2>{title}</h2>
+              {renderInputs(fields, layout)}
+              {additionalFields && (
+                <div className="card-details">
+                  {additionalFields.map(({ label, type, name }) => (
+                    <EnhancedInput
+                      key={name}
+                      label={label}
+                      type={type}
+                      name={name}
+                      value={formData[name]}
+                      onChange={handleChange}
+                      error={errors[name]}
+                    />
+                  ))}
+                </div>
+              )}
+              {title === 'Card Details' && (
+                <label className="checkbox-container">
+                  <input
+                    type="checkbox"
+                    name="saveCard"
+                    checked={formData.saveCard}
                     onChange={handleChange}
-                    error={errors[name]}
                   />
-                ))}
-              </div>
-            )}
-            {title === 'Card Details' && (
-              <label className="checkbox-container">
-                <input
-                  type="checkbox"
-                  name="saveCard"
-                  checked={formData.saveCard}
-                  onChange={handleChange}
-                />
-                <span className="checkmark"></span> Save card for next time
-              </label>
-            )}
-          </div>
-        ))}
-        <SubmitButton text="PAY NOW" />
-      </form>
-    </div>
+                  <span className="checkmark"></span> Save card for next time
+                </label>
+              )}
+            </div>
+          ))}
+          <SubmitButton text="PAY NOW" />
+        </form>
+      </div>
+    </>
   );
 }
 

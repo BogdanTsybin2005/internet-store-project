@@ -1,14 +1,17 @@
 import './LoginPage.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import FormInput from '../../components/input/FormInput';
 import GoBackToMainPageButton from '../../components/auth-button-to-main-page/go-back-button';
+import { useAuth } from '../../context/AuthContext';
 
 
 
 export default function LoginPage() {
     const [loginData, setLoginData] = useState({ email: '', password: '', remember: false });
     const [errors, setErrors] = useState({});
+    const { login } = useAuth();
+    const navigate = useNavigate();
 
     const validate = () => {
         const newErrors = {};
@@ -29,16 +32,14 @@ export default function LoginPage() {
             setErrors(validationErrors);
             return;
         }
-        console.log("Login Data:", loginData);
-        setErrors({});
+        login({ name: loginData.email });
+        navigate('/');
     };
 
     return (
         <div className="auth-page-container">
             <div className="auth-left-panel">
-
-                <GoBackToMainPageButton isButtonFixed/>
-                
+                <GoBackToMainPageButton isButtonFixed />
                 <h2>Nice to see you again</h2>
                 <h1>WELCOME BACK</h1>
                 <p>Access your account and continue your shopping experience.</p>

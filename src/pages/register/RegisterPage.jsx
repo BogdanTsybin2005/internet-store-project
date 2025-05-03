@@ -1,8 +1,9 @@
 import './RegisterPage.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import FormInput from '../../components/input/FormInput';
 import GoBackToMainPageButton from '../../components/auth-button-to-main-page/go-back-button';
+import { useAuth } from '../../context/AuthContext';
 
 
 
@@ -17,6 +18,8 @@ export default function RegisterPage() {
     });
 
     const [errors, setErrors] = useState({});
+    const { login } = useAuth();
+    const navigate = useNavigate();
 
     const validate = () => {
         const newErrors = {};
@@ -41,16 +44,14 @@ export default function RegisterPage() {
             setErrors(validationErrors);
             return;
         }
-        console.log("Registered Data:", formData);
-        setErrors({});
+        login({ name: formData.email });
+        navigate('/');
     };
 
     return (
         <div className="auth-page-container">
             <div className="auth-left-panel">
-
-                <GoBackToMainPageButton isButtonFixed/>
-
+                <GoBackToMainPageButton isButtonFixed />
                 <h2>Welcome to our store!</h2>
                 <h1>CREATE ACCOUNT</h1>
                 <p>Shop smart and easy. Register now and enjoy exclusive benefits!</p>
@@ -115,7 +116,6 @@ export default function RegisterPage() {
 
                         <button type="submit" className="auth-button">REGISTER</button>
                     </form>
-
                 </div>
             </div>
         </div>

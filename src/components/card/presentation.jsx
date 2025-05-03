@@ -1,12 +1,14 @@
 import { useCart } from "../../context/CartContext";
-import ShoppingBasketButton from "../button/shoppingBasketButton";
+import LinkToCardButton from "../button/linkToCardButton";
 import React from "react";
 import './card.css';
+import { useAuth } from "../../context/AuthContext";
 
 
 
 export default function CardList({ data }) {
     const { cart, addToCart, decreaseQuantity } = useCart();
+    const {isAuthenticated} = useAuth();
 
     return (
         <>
@@ -34,6 +36,7 @@ export default function CardList({ data }) {
                                 ) : (
                                     <button className="base-button" onClick={() => addToCart(item)}>Add to cart</button>
                                 )}
+                                {isAuthenticated && <LinkToCardButton id={item.id}/>}
                             </div>
                         </div>
                     </div>

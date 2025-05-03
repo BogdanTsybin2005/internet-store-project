@@ -3,4 +3,12 @@ html, body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     box-sizing: border-box;
+    min-height: 100vh;
+}
+.App {
+    display: flex;
+    flex-direction: column;
+}
+.App-container {
+    flex: 1;
 }

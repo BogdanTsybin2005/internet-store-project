@@ -1,4 +1,7 @@
 import React from 'react';
+import './FormInput.css';
+
+
 
 export default function FormInput({ label, type, name, value, onChange, error }) {
     return (

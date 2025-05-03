@@ -3,6 +3,8 @@ import './scroll-button.css';
 import useScrollY from '../../hooks/useScrollY';
 import useWindowHeight from '../../hooks/useWindowHeight';
 
+
+
 export default function ScrollButton({ scrollInToView = 'top', isDark = false }) {
     const scrollY = useScrollY();
     const windowHeight = useWindowHeight();
