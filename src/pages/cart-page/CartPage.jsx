@@ -42,6 +42,7 @@ function CartPage() {
               <p>Total: <strong>${totalPrice}</strong></p>
               <button className="clear-cart-button" onClick={clearCart}>Clear Cart</button>
               <Link to="/" className="go-home-button">🏠 Go to Home</Link>
+              <Link to="/checkout" className="go-home-button">Place an order</Link>
             </div>
           </>
         )}

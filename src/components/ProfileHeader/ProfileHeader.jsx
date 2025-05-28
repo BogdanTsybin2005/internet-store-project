@@ -10,7 +10,7 @@ export default function ProfileHeader() {
     <header className="profile-header">
       <div className="profile-header-container">
         <div className="profile-header-left">
-          <h1 className="profile-title">Profile Panel</h1>
+          <h1 className="profile-title">Profile</h1>
         </div>
         <div className="profile-header-right">
           <button
