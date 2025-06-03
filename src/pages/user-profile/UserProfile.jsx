@@ -1,5 +1,5 @@
 import './UserProfile.css';
-import { useAuth } from '../../context/AuthContext';
+import { useAuthStore } from '../../store/authStore';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
@@ -14,7 +14,7 @@ import AvatarUploader from '../../components/AvatarUploader/AvatarUploader';
 
 export default function UserProfile() {
   const navigate = useNavigate();
-  const { user, logout, updateUser } = useAuth();
+  const { user, logout, updateUser } = useAuthStore();
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState(user || {});
   const [avatarUrl, setAvatarUrl] = useState(user?.avatar || '');
@@ -33,10 +33,29 @@ export default function UserProfile() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSave = () => {
-    updateUser({ ...formData, avatar: avatarUrl });
-    setIsEditing(false);
+  const handleSave = async () => {
+    const updatedUser = { ...formData, avatar: avatarUrl, id: user.id };
+
+    try {
+      const res = await fetch('http://localhost:3000/api/update-user', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedUser),
+      });
+
+      const result = await res.json();
+
+      if (res.ok) {
+        updateUser(result.user);
+        setIsEditing(false);
+      } else {
+        alert('Ошибка при сохранении: ' + result.message);
+      }
+    } catch (error) {
+      alert('Сервер не отвечает');
+    }
   };
+
 
   const handleAvatarUpload = (e) => {
     const file = e.target.files[0];
@@ -58,13 +77,15 @@ export default function UserProfile() {
         <section className="profile-sections">
           <ProfileCard large>
             <div className="avatar-upload">
-              {avatarUrl ? (
-                <img className="profile-avatar" src={avatarUrl} alt="avatar" />
-              ) : (
-                <div className="profile-avatar default-logo">
-                  <DefaultUserProfileLogo />
-                </div>
-              )}
+              <div className="profile-avatar">
+                {avatarUrl ? (
+                  <img src={avatarUrl} alt="avatar" />
+                ) : (
+                  <div className="default-avatar-wrapper">
+                    <DefaultUserProfileLogo />
+                  </div>
+                )}
+              </div>
               {isEditing && <AvatarUploader onChange={handleAvatarUpload} />}
             </div>
             <h3>{user.firstName} {user.lastName}</h3>
@@ -76,43 +97,13 @@ export default function UserProfile() {
           </ProfileCard>
 
           <ProfileCard title="Personal Information">
-          {isEditing ? (
+            {isEditing ? (
               <>
-                <FormInput
-                  label="First Name"
-                  type="text"
-                  name="firstName"
-                  value={formData.firstName || ''}
-                  onChange={handleChange}
-                />
-                <FormInput
-                  label="Last Name"
-                  type="text"
-                  name="lastName"
-                  value={formData.lastName || ''}
-                  onChange={handleChange}
-                />
-                <FormInput
-                  label="Age"
-                  type="number"
-                  name="age"
-                  value={formData.age || ''}
-                  onChange={handleChange}
-                />
-                <FormInput
-                  label="Phone"
-                  type="tel"
-                  name="phone"
-                  value={formData.phone || ''}
-                  onChange={handleChange}
-                />
-                <FormInput
-                  label="City"
-                  type="text"
-                  name="city"
-                  value={formData.city || ''}
-                  onChange={handleChange}
-                />
+                <FormInput label="First Name" type="text" name="firstName" value={formData.firstName || ''} onChange={handleChange} />
+                <FormInput label="Last Name" type="text" name="lastName" value={formData.lastName || ''} onChange={handleChange} />
+                <FormInput label="Age" type="number" name="age" value={formData.age || ''} onChange={handleChange} />
+                <FormInput label="Phone" type="tel" name="phone" value={formData.phone || ''} onChange={handleChange} />
+                <FormInput label="City" type="text" name="city" value={formData.city || ''} onChange={handleChange} />
               </>
             ) : (
               <>
@@ -124,12 +115,7 @@ export default function UserProfile() {
                 <div className="field"><label>City</label><p>{user.city || 'Not set'}</p></div>
               </>
             )}
-
-            {isEditing && (
-              <button className="profile-save-btn" onClick={handleSave}>
-                Save
-              </button>
-            )}
+            {isEditing && <button className="profile-save-btn" onClick={handleSave}>Save</button>}
           </ProfileCard>
 
           <ProfileCard title="My Orders">

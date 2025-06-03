@@ -1,6 +1,3 @@
-import * as React from "react"
-
-
 function DefaultUserProfileLogo() {
   return (
     <svg
